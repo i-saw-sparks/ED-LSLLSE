@@ -54,7 +54,7 @@ void Cancion::setArchivoId(const std::string &archivo) {
 
 const std::string Cancion::toString() const{
     std::string ret;
-    ret += autor + " | " + interprete + " | " + nombre + " | " + archivoId + ".mp3 | " +std::to_string(posicion) + "\n";
+    ret += autor + " | " + interprete + " | " + nombre + " | " + archivoId + ".mp3 | " +std::to_string(posicion);
     return ret;
 }
 

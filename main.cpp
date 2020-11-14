@@ -19,9 +19,6 @@ int main(){
             case 'S':
                 Menu::buscarCancion(songs);
                 break;
-            case 'P':
-                Menu::ordenarLista(songs);
-                break;
             case 'F':
                 running = false;
                 break;
