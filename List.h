@@ -66,6 +66,56 @@ public:
 };
 
 template<typename T>
+List<T>::List():anchor(nullptr) {}
+
+template<typename T>
+List<T>::List(const List<T> &):anchor(nullptr) {
+
+}
+
+template<typename T>
+List<T>::~List() {
+
+}
+
+template<typename T>
+bool List<T>::isEmpty() {
+    return anchor == nullptr;
+}
+
+template<typename T>
+void List<T>::insert(List::Node *pos, const T &arg) {
+    if(pos != nullptr && !isValidPos(pos))
+        throw Exception("Invalid position");
+
+    Node* aux(new Node(arg));
+
+    if(aux == nullptr)
+        throw Exception("Memory not available");
+
+    if(pos == nullptr){
+        aux->setNext(pos->getNext());
+        pos->getNext(aux);
+    }else{
+        aux->setNext(pos->getNext());
+        pos->setNext(aux);
+    }
+}
+
+template<typename T>
+void List<T>::erase(List::Node* pos) {
+    if(!isValidPos(pos))
+        throw Exception("Invalid position");
+
+    if(pos == anchor->getNext())
+        anchor = anchor->getNext();
+    else
+        getPrev(pos)->setNext(pos->getNext());
+
+    delete pos;
+}
+
+template<typename T>
 List<T>::Node::Node():next(nullptr) {}
 
 template<typename T>
