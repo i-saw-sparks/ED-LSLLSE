@@ -3,4 +3,4 @@ project(LSLLSE)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(LSLLSE main.cpp Menu.cpp Menu.h Cancion.cpp Cancion.h List.cpp List.h)
+add_executable(LSLLSE main.cpp Menu.cpp Menu.h Cancion.cpp Cancion.h List.h)
