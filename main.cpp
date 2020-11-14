@@ -1,10 +1,10 @@
 #include <iostream>
-#include "StaticList.h"
+#include "List.h"
 #include "Menu.h"
 #include "Cancion.h"
 
 int main(){
-    StaticList<Cancion, 4000> songs;
+    List<Cancion> songs;
 
     bool running = true;
 

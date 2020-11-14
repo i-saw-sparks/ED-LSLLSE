@@ -13,7 +13,7 @@ Menu::Menu() {
 
 }
 
-void Menu::list(const StaticList<Cancion, 4000> &list){
+void Menu::list(const List<Cancion> &list){
     std::cout<<"\033[1;32m";
     for (int i = 0; i < list.getSize(); ++i) {
         std::cout<<list.fetch(i)<<std::endl;
@@ -28,13 +28,13 @@ char Menu::options(){
     return ret;
 }
 
-int Menu::printMenu(const StaticList<Cancion, 4000> &list){
+int Menu::printMenu(const List<Cancion> &list){
     Menu::header();
     Menu::list(list);
     return Menu::options();
 }
 
-void Menu::scanCancion(StaticList<Cancion, 4000> &list) {
+void Menu::scanCancion(List<Cancion> &list) {
     Cancion temp;
     std::string strIn;
     int intIn;
@@ -60,7 +60,7 @@ void Menu::scanCancion(StaticList<Cancion, 4000> &list) {
     list.insert(temp, intIn);
 }
 
-int Menu::deleteCancion(StaticList<Cancion, 4000> &list) {
+int Menu::deleteCancion(List<Cancion> &list) {
     int intIn;
     std::cout<<"-------------------------------------------"<<std::endl;
     std::cout<<std::endl<<"Ingrese la posicion de la cancion en la lista: ";
@@ -69,7 +69,7 @@ int Menu::deleteCancion(StaticList<Cancion, 4000> &list) {
     return 0;
 }
 
-int Menu::buscarCancion(StaticList<Cancion, 4000> &list) {
+int Menu::buscarCancion(List<Cancion> &list) {
     std::string strIn;
     bool method = 0;
     Cancion canIn;
@@ -114,7 +114,7 @@ int Menu::buscarCancion(StaticList<Cancion, 4000> &list) {
     return 0;
 }
 
-void Menu::ordenarLista(StaticList<Cancion, 4000> &canciones) {
+void Menu::ordenarLista(List<Cancion> &canciones) {
     uint16_t metodoOrd;
     bool campoAOrdenar;
 

@@ -5,7 +5,7 @@
 #ifndef LISTA_ESTATICA_MENU_H
 #define LISTA_ESTATICA_MENU_H
 
-#include "StaticList.h"
+#include "List.h"
 #include "Cancion.h"
 #include <iostream>
 #include <iomanip>
@@ -15,13 +15,13 @@ class Menu {
 public:
     Menu();
     static void header();
-    static void list(const StaticList<Cancion, 4000>&);
+    static void list(const List<Cancion>&);
     static char options();
-    static void scanCancion( StaticList<Cancion, 4000>&);
-    static int deleteCancion(StaticList<Cancion, 4000>&);
-    static int buscarCancion(StaticList<Cancion, 4000>&);
-    static int printMenu(const StaticList<Cancion, 4000> &);
-    static void ordenarLista(StaticList<Cancion, 4000>&);
+    static void scanCancion(List<Cancion>&);
+    static int deleteCancion(List<Cancion>&);
+    static int buscarCancion(List<Cancion>&);
+    static int printMenu(const List<Cancion> &);
+    static void ordenarLista(List<Cancion>&);
 };
 
 
