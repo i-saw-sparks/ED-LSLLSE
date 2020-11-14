@@ -39,5 +39,31 @@ public:
     };
 };
 
+template<typename T>
+List<T>::Node::Node():next(nullptr) {}
+
+template<typename T>
+List<T>::Node::Node(const T &arg):data(arg), next(nullptr) {}
+
+template<typename T>
+T List<T>::Node::getData() const {
+    return data;
+}
+
+template<typename T>
+typename List<T>::Node* List<T>::Node::getNext() const {
+    return next;
+}
+
+template<typename T>
+void List<T>::Node::setData(const T &arg) {
+    data = arg;
+}
+
+template<typename T>
+void List<T>::Node::setNext(List<T>::Node* argP) {
+    next = argP;
+}
+
 
 #endif //LSLLSE_LIST_H
