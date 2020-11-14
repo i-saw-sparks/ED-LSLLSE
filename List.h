@@ -25,6 +25,9 @@ private:
         void setNext(Node*);
     };
 
+    Node* anchor;
+    bool isValidPos(Node*) const;
+
 public:
     class Exception:public std::exception{
     private:
@@ -37,6 +40,29 @@ public:
             return msg.c_str();
         }
     };
+
+    List();
+    List(const List<T>&);
+    ~List();
+
+    bool isEmpty();
+    void insert(Node*, const T&);
+    void erase(Node*);
+
+    Node* getFirst() const;
+    Node* getLast() const;
+    Node* getPrev(Node*) const;
+    Node* getNext(Node*) const;
+
+    Node* find(const T&) const;
+
+    T fetch(Node*) const;
+
+    std::string toString() const;
+
+    void deleteAll();
+
+    List<T>& operator = (const List<T>&);
 };
 
 template<typename T>
