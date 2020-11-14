@@ -1,0 +1,70 @@
+Z
+Yellow
+Coldplay
+Chris
+Yellow_Par
+1
+-1
+Z
+Nights
+Frank Ocean
+Frank Ocean
+nghts_bdc
+2
+0
+Z
+Visions of Gideon
+Sufjan Stevens
+Sufjan Stevens
+vision_cmbyn
+4
+1
+Z
+American boy
+Estelle
+Estelle, Kanye
+american-boy
+5
+2
+Z
+Melodrama
+Jack Antonoff
+Lorde
+melo_2
+9
+3
+Z
+Nobody Gets me like you
+Wallows
+Wallows
+remote_3
+10
+4
+Z
+Home
+Cavetown
+Cavetown
+home_single_ed
+15
+5
+Z
+Danny
+C418
+C418
+mine_alpaha_soundtrack
+31
+6
+Z
+Animal
+Troye Sivan
+Troye Sivan
+bloom_animal
+19
+7
+Z
+Mind
+The 1975
+The 1975
+ilwysMind
+40
+8
