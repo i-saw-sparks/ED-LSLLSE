@@ -15,15 +15,17 @@ private:
     class Node{
     private:
         T data;
-        Node* next;
+        Node* next, prev;
     public:
         Node();
         Node(const T&);
         T getData() const;
         Node* getNext() const;
+        Node* getPrev() const;
 
         void setData(const T&);
         void setNext(Node*);
+        void setPrev(Node*);
     };
 
     Node* anchor;
@@ -60,11 +62,8 @@ public:
     Node* find(const T&, std::function<int(T, T)> comp) const;
 
     T fetch(Node*) const;
-
     std::string toString() const;
-
     void deleteAll();
-
     List<T>& operator = (const List<T>&);
 };
 
@@ -114,9 +113,18 @@ void List<T>::insert(List::Node *pos, const T &arg) {
 
     if(pos == nullptr){
         aux->setNext(anchor);
+
+        if(anchor != nullptr)
+            anchor->setPrev(aux);
+
         anchor = aux;
     }else{
+        aux->setPrev(pos);
         aux->setNext(pos->getNext());
+
+        if(pos->getNext() != nullptr)
+            pos->getNext()->setPrev(aux);
+
         pos->setNext(aux);
     }
 }
@@ -126,10 +134,14 @@ void List<T>::erase(List::Node* pos) {
     if(!isValidPos(pos))
         throw Exception("Invalid position");
 
-    if(pos == anchor->getNext())
+    if(pos == anchor)
         anchor = anchor->getNext();
-    else
-        getPrevPos(pos)->setNext(pos->getNext());
+
+    if(pos->getPrev() != nullptr)
+        pos->getPrev()->setNext(pos->getNext());
+
+    if(pos->getNext() != nullptr)
+        pos->getNext()->setPrev(pos->getPrev());
 
     delete pos;
 }
@@ -154,15 +166,10 @@ typename List<T>::Node *List<T>::getLastPos() const {
 
 template<typename T>
 typename List<T>::Node *List<T>::getPrevPos(List::Node *pos) const {
-    if(pos == anchor)
+    if(!isValidPos(pos))
         return nullptr;
 
-    Node* aux(anchor);
-
-    while (aux != nullptr && aux->getNext() != pos)
-        aux = aux->getNext();
-
-    return aux;
+    return pos->getPrev();
 }
 
 template<typename T>
@@ -240,10 +247,10 @@ List<T> &List<T>::operator=(const List<T> &arg) {
 }
 
 template<typename T>
-List<T>::Node::Node():next(nullptr) {}
+List<T>::Node::Node():next(nullptr), prev(nullptr) {}
 
 template<typename T>
-List<T>::Node::Node(const T &arg):data(arg), next(nullptr) {}
+List<T>::Node::Node(const T &arg):data(arg), next(nullptr), prev(nullptr) {}
 
 template<typename T>
 T List<T>::Node::getData() const {
@@ -256,6 +263,11 @@ typename List<T>::Node* List<T>::Node::getNext() const {
 }
 
 template<typename T>
+typename List<T>::Node *List<T>::Node::getPrev() const{
+    return prev;
+}
+
+template<typename T>
 void List<T>::Node::setData(const T &arg) {
     data = arg;
 }
@@ -263,6 +275,11 @@ void List<T>::Node::setData(const T &arg) {
 template<typename T>
 void List<T>::Node::setNext(List<T>::Node* argP) {
     next = argP;
+}
+
+template<typename T>
+void List<T>::Node::setPrev(List::Node *argP) {
+    prev = argP;
 }
 
 

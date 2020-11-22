@@ -80,12 +80,12 @@ int Menu::deleteCancion(List<Cancion> &list) {
 
 
     if (campoAEliminar) {
-        std::cout << std::endl << "Ingrese el autor de la cancion que desea buscar: ";
+        std::cout << std::endl << "Ingrese el autor de la cancion que desea eliminar: ";
         std::getline(std::cin >> std::ws, strIn);
         canIn.setAutor(strIn);
         pos = list.find(canIn, Cancion::compareByAutor);
     } else {
-        std::cout << std::endl << "Ingrese el nombre de la cancion que desea buscar: ";
+        std::cout << std::endl << "Ingrese el nombre de la cancion que desea eliminar: ";
         std::getline(std::cin >> std::ws, strIn);
         canIn.setNombre(strIn);
         pos = list.find(canIn, Cancion::compareByNombre);
