@@ -15,7 +15,7 @@ private:
     class Node{
     private:
         T data;
-        Node* next, prev;
+        Node *next, *prev;
     public:
         Node();
         Node(const T&);
