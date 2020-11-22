@@ -18,7 +18,7 @@ void Menu::list(const List<Cancion> &list) {
     List<Cancion>::Position aux;
     aux = list.getFirstPos();
 
-    while (aux != list.getLastPos()){
+    while (aux != nullptr){
         std::cout<<list.fetch(aux)<<std::endl;
         aux = aux->getNext();
     }
